@@ -1,0 +1,24 @@
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    margin: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+    .notes-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .notes-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .notes-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}

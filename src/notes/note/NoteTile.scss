@@ -1,0 +1,33 @@
+$title-height: 40px;
+$line-height: 25px;
+$status-height: 15px;
+
+.note-tile-container {
+    min-width: 0;
+
+    .note-title {
+        height: $title-height;
+        line-height: $title-height;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.2em;
+        font-weight: bold;
+        background-origin: padding-box;
+        padding: 0 10px;
+    }
+
+    .note-body {
+        height: $line-height * 5;
+        line-height: $line-height;
+        word-break: break-all;
+        overflow: hidden;
+        padding: 5px 10px 0;
+    }
+
+    .note-status {
+        height: $status-height;
+        font-size: small;
+        font-style: italic;
+        padding: 5px 10px;
+    }
+}

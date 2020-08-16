@@ -1,7 +1,7 @@
 import './App.scss';
 import React from 'react';
 import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
-import { Notes } from './notes/notes';
+import { Notes } from './notes/Notes';
 
 export class App extends React.Component {
     public render(): JSX.Element {

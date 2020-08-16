@@ -1,8 +1,9 @@
+import './Notes.scss';
 import React from 'react';
 import axios from 'axios';
 import { rootUrl } from '../core/app-settings';
 import { Note } from './entities/note';
-import { NoteTile } from './note/note-tile';
+import { NoteTile } from './note/NoteTile';
 
 export class Notes extends React.Component<NotesProps, NotesState> {
     constructor(props: NotesProps) {
@@ -29,7 +30,7 @@ export class Notes extends React.Component<NotesProps, NotesState> {
         });
 
         return (
-            <div>
+            <div className="notes-container">
                 {notesList}
             </div>
         );
@@ -42,8 +43,8 @@ export class Notes extends React.Component<NotesProps, NotesState> {
             .then((resp) => {
                 this.setState({
                     notes: resp.data
-                })
-            })
+                });
+            });
     }
 }
 
