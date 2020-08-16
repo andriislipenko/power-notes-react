@@ -1,8 +1,10 @@
+@import '../shared/Shared.scss';
+
 .notes-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
-    margin: 5px;
+    margin: $control-bar-height 5px 5px;
 }
 
 @media only screen and (min-width: 768px) {

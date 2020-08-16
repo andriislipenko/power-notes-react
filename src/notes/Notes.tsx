@@ -4,6 +4,7 @@ import axios from 'axios';
 import { rootUrl } from '../core/app-settings';
 import { Note } from './entities/note';
 import { NoteTile } from './note/NoteTile';
+import { ControlBar } from './control-bar/ControlBar';
 
 export class Notes extends React.Component<NotesProps, NotesState> {
     constructor(props: NotesProps) {
@@ -12,6 +13,8 @@ export class Notes extends React.Component<NotesProps, NotesState> {
         this.state = {
             notes: []
         }
+
+        this.getNotes = this.getNotes.bind(this);
     }
 
     public componentDidMount(): void {
@@ -21,23 +24,26 @@ export class Notes extends React.Component<NotesProps, NotesState> {
     public render(): JSX.Element | null {
         const notes: Note[] = this.state.notes;
 
-        if (!notes || !notes.length) {
-            return null;
-        }
-
         const notesList: JSX.Element[] = notes.map((note: Note) => {
             return <NoteTile note={note} key={note.id}/>;
         });
 
         return (
-            <div className="notes-container">
-                {notesList}
-            </div>
+            <>
+                <ControlBar onSearch={this.getNotes}/>
+                <div className="notes-container">
+                    {notesList}
+                </div>
+            </>
         );
     }
 
-    private getNotes(): void {
-        const url: string = `${rootUrl}/notes`;
+    private getNotes(title: string = ''): void {
+        let url: string = `${rootUrl}/notes`;
+
+        if (title) {
+            url += `?title=${title}`;
+        }
 
         axios.get(url)
             .then((resp) => {

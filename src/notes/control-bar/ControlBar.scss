@@ -1,0 +1,25 @@
+@import "../../shared/Shared";
+
+.control-bar-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: $control-bar-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 5px 10px;
+    background-color: #ffffffcc;
+
+    .search-input {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #888888;
+        font-size: 1em;
+        background: none;
+        
+        &::placeholder {
+           color: #333333; 
+        }
+    }
+}
